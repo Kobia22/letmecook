@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>LetMeCook - Collaborative Recipe Manager</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">LetMeCook</div>
+
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Recipes</a></li>
+                <li><a href="#about-us">About</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="search-bar">
+        <input type="text" id="recipe-search" placeholder="Search recipes..." onkeyup="filterRecipes()">
+        <button id="add-recipe">Add Recipe</button>
+    </div>
+
+    <div class="hero">
+        <h1>Welcome to LetMeCook</h1>
+        <p>Discover, cook, and enjoy amazing recipes.</p>
+        <img src="images/image1.jpeg" alt="Delicious Food 1">
+        <img src="images/image2.jpeg" alt="Delicious Food 2">
+        <img src="images/image3.jpeg" alt="Delicious Food 3">
+        <p>Browse our collection of recipes, Whether you're a beginner or an experienced cook, we have something for everyone!</p>
+    </div>
+
+    <main>
+        <section id="featured-recipes">
+            <h2>Featured Recipes</h2>
+                <div class="recipe-card">
+                    <h3>Blueberry Smoothie</h3>
+                    <img src="images/blueberry_smoothie.jpg" alt="Blueberry Smoothie">
+                    <p>A refreshing and nutritious drink made by blending blueberries with yogurt and milk.</p>
+                    <a href="#" class="view-more-btn">View More</a>
+                </div>    
+                <div class="recipe-card">
+                    <h3>Fish Stew</h3>
+                    <img src="images/fish_stew.jpg" alt="Fish Stew">
+                    <p>"Fish stew is a hearty soup or stew that features fish as its primary ingredient. It's a popular dish worldwide, with variations based on regional cuisines.",</p>
+                    <a href="#" class="view-more-btn">View More</a>
+                </div>             
+        </section>
+            
+            
+            
+            <!-- Add more recipes -->
+        </section>
+        
+
+        <section id="recent-recipes">
+            <h2>Recent Recipes</h2>
+            <div class="recipe-card"></div>
+            <div class="recipe-card"></div>
+            <!-- Add more recipe cards dynamically -->
+        </section>
+    </main>
+
+    <section id="additional-info" style="padding: 50px; text-align: center; background-color: rgb(104, 100, 100); color: white;">
+        <h2>Why Choose LetmeCook?</h2>
+        <p>LetMeCook is your go-to platform for curated recipes, cooking tips, and meal inspiration. 
+            Join our community and elevate your culinary skills!</p>
+    </section>
+
+    <section>
+        <h2 id="about-us"><a href="recipeabout.html">About us</a></h2>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2024 LetMeCook. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+            <a href="https://discord.com" target="_blank">Discord</a>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
