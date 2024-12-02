@@ -52,12 +52,6 @@
                     <a href="#" class="view-more-btn">View More</a>
                 </div>             
         </section>
-            
-            
-            
-            <!-- Add more recipes -->
-        </section>
-        
 
         <section id="recent-recipes">
             <h2>Recent Recipes</h2>
@@ -88,6 +82,19 @@
         </div>
     </footer>
 
+    <!-- Modal Container -->
+    <div id="recipeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <img id="modalImage" src="" alt="">
+            <p id="modalDescription"></p>
+            <h3>Ingredients</h3>
+            <ul id="modalIngredients"></ul>
+            <h3>Instructions</h3>
+            <ol id="modalInstructions"></ol>
+        </div>
+    </div>
     <script src="js/script.js"></script>
 </body>
 
