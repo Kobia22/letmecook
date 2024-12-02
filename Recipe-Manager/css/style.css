@@ -267,6 +267,35 @@ section {
     font-size: 1.2rem;
 }
 
+/* About Us Section Styling */
+#about-us {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #FF6A00; /* Bright orange for a vibrant look */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+#about-us a {
+    text-decoration: none; /* Remove underline */
+    color: #FF6A00; /* Match the heading color */
+    border: 2px solid #FF6A00;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+#about-us a:hover {
+    background-color: #FF6A00; /* Orange background */
+    color: #fff; /* White text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+
 
 /* Footer */
 footer {

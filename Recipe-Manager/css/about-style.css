@@ -94,6 +94,33 @@ section p {
     min-width: 250px;
 }
 
+/* Back to Home Link Styling */
+#back {
+    display: inline-block;
+    margin: 20px 0;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff; /* White text */
+    background-color: #FF6A00; /* Bright orange background */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: all 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+#back:hover {
+    background-color: #FF4500; /* Slightly darker orange on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+    transform: scale(1.05); /* Slight enlargement */
+}
+
+#back:active {
+    background-color: #FF2400; /* Even darker orange when clicked */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduced shadow */
+    transform: scale(0.95); /* Button slightly shrinks */
+}
+
+
 /* Footer Styles */
 footer {
     background-color: #333;
