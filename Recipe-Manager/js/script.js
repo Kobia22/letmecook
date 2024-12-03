@@ -7,17 +7,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalInstructions = document.getElementById("modalInstructions");
     const closeButton = document.querySelector(".close-button");
 
-    // Add event listener to all "View More" buttons
-    document.querySelectorAll(".view-more-btn").forEach(button => {
+    // Add event listeners to "View More" buttons
+    const viewButtons = document.querySelectorAll(".view-more-btn");
+    viewButtons.forEach(button => {
         button.addEventListener("click", () => {
-            const recipeName = button.previousElementSibling.previousElementSibling.textContent.toLowerCase().replace(/ /g, "_");
-            const jsonFilePath = `json/${recipeName}.json`; // Assumes JSON files match the recipe name in lowercase and underscores
+            const recipeName = button.previousElementSibling.previousElementSibling.textContent
+                .toLowerCase()
+                .replace(/ /g, "_");
+            const jsonFilePath = `json/${recipeName}.json`; // Path to JSON file
 
-            // Fetch the recipe JSON file
+            // Fetch and display recipe data
             fetch(jsonFilePath)
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error(`Could not fetch recipe data for ${recipeName}`);
+                        throw new Error(`Could not fetch data for ${recipeName}`);
                     }
                     return response.json();
                 })
@@ -25,12 +28,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     displayRecipeModal(recipe);
                 })
                 .catch(error => {
-                    console.error("Error fetching recipe data:", error);
+                    console.error("Error fetching recipe:", error);
                 });
         });
     });
 
-    // Function to populate the modal with recipe details
+    // Function to populate modal with recipe data
     function displayRecipeModal(recipe) {
         modalTitle.textContent = recipe.name;
         modalImage.src = recipe.images[0].path;
@@ -53,15 +56,15 @@ document.addEventListener("DOMContentLoaded", () => {
             modalInstructions.appendChild(li);
         });
 
-        modal.style.display = "block";
+        modal.style.display = "block"; // Show the modal
     }
 
-    // Close modal when "x" button is clicked
+    // Close modal when the "x" button is clicked
     closeButton.addEventListener("click", () => {
         modal.style.display = "none";
     });
 
-    // Close modal when clicking outside of it
+    // Close modal when clicking outside the modal content
     window.addEventListener("click", event => {
         if (event.target === modal) {
             modal.style.display = "none";
