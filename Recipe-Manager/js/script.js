@@ -1,3 +1,56 @@
+// Assume you have a JSON file named 'recipes.json' with the following structure:
+// [
+//   {
+//     "name": "Recipe 1",
+//     "ingredients": ["Ingredient 1", "Ingredient 2"],
+//     "instructions": ["Step 1", "Step 2"]
+//   },
+//   {
+//     "name": "Recipe 2",
+//     "ingredients": ["Ingredient 3", "Ingredient 4"],
+//     "instructions": ["Step 3", "Step 4"]
+//   }
+// ]
+
+// Load the JSON file using require
+const recipes = require('../recipes/json');
+
+// Initialize the search bar and button
+const searchBar = document.getElementById('recipe-search');
+const addButton = document.getElementById('add-recipe');
+
+// Define the filterRecipes function
+function filterRecipes() {
+  const searchQuery = searchBar.value.toLowerCase();
+  const filteredRecipes = recipes.filter(recipe => {
+    return recipe.name.toLowerCase().includes(searchQuery) ||
+           recipe.ingredients.some(ingredient => ingredient.toLowerCase().includes(searchQuery)) ||
+           recipe.instructions.some(instruction => instruction.toLowerCase().includes(searchQuery));
+  });
+
+  // Update the HTML content with the filtered recipes
+  const recipeList = document.getElementById('recipe-list');
+  recipeList.innerHTML = '';
+  filteredRecipes.forEach(recipe => {
+    const recipeHTML = `
+      <div class="recipe">
+        <h2>${recipe.name}</h2>
+        <ul>
+          ${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
+        </ul>
+        <ol>
+          ${recipe.instructions.map(instruction => `<li>${instruction}</li>`).join('')}
+        </ol>
+      </div>
+    `;
+    recipeList.insertAdjacentHTML('beforeend', recipeHTML);
+  });
+}
+
+// Add event listener to the search bar
+searchBar.addEventListener('keyup', filterRecipes);
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("recipeModal");
     const modalTitle = document.getElementById("modalTitle");
@@ -5,31 +58,28 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalDescription = document.getElementById("modalDescription");
     const modalIngredients = document.getElementById("modalIngredients");
     const modalInstructions = document.getElementById("modalInstructions");
-    const closeButton = document.querySelector(".close-button");
+    const closeButton = document.getElementsByClassName("close-button")[0];
 
     // Add event listeners to "View More" buttons
-    const viewButtons = document.querySelectorAll(".view-more-btn");
+    const viewButtons = Array.from(document.getElementsByClassName("view-more-btn"));
     viewButtons.forEach(button => {
-        button.addEventListener("click", () => {
+        button.addEventListener("click", async () => {
             const recipeName = button.previousElementSibling.previousElementSibling.textContent
                 .toLowerCase()
                 .replace(/ /g, "_");
-            const jsonFilePath = `json/${recipeName}.json`; // Path to JSON file
+            const jsonFilePath = `../recipes/json/${recipeName}.json`; // Path to JSON file
 
-            // Fetch and display recipe data
-            fetch(jsonFilePath)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Could not fetch data for ${recipeName}`);
-                    }
-                    return response.json();
-                })
-                .then(recipe => {
-                    displayRecipeModal(recipe);
-                })
-                .catch(error => {
-                    console.error("Error fetching recipe:", error);
-                });
+            // Fetch and display the JSON file
+            try {
+                const response = await fetch(jsonFilePath);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const recipe = await response.json();
+                displayRecipeModal(recipe);
+            } catch (error) {
+                console.error("Error fetching recipe:", error);
+            }
         });
     });
 
@@ -71,3 +121,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+

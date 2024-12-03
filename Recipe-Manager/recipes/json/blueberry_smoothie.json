@@ -18,7 +18,7 @@
   "images": [
     {
       "description": "Blueberry smoothie served in a glass",
-      "path": "images/blueberry_smoothie.jpg"
+      "path": "../../../images/blueberry_smoothie.jpg"
     }
   ]
 }
