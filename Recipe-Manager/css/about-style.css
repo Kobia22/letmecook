@@ -100,8 +100,8 @@ section p {
     margin: 20px 0;
     padding: 10px 20px;
     font-size: 1rem;
-    color: #fff; /* White text */
-    background-color: #FF6A00; /* Bright orange background */
+    color: #FF6A00; /* White text */
+    background-color: white; /* Bright orange background */
     text-decoration: none; /* Remove underline */
     border-radius: 5px; /* Rounded corners */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
@@ -109,6 +109,7 @@ section p {
 }
 
 #back:hover {
+    color: white;
     background-color: #FF4500; /* Slightly darker orange on hover */
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
     transform: scale(1.05); /* Slight enlargement */
