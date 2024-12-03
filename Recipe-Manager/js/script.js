@@ -1,71 +1,70 @@
-document.addEventListener('DOMContentLoaded', function() {
-    function displayRecipes() {
-        fetch('recipes/json/blueberry_smoothie.json')
-            .then(response => response.json())
-            .then(data => {
-                const featuredRecipesContainer = document.getElementById('featured-recipes');
-                const recipeCard = document.createElement('div');
-                recipeCard.classList.add('recipe-card');
+document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("recipeModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalImage = document.getElementById("modalImage");
+    const modalDescription = document.getElementById("modalDescription");
+    const modalIngredients = document.getElementById("modalIngredients");
+    const modalInstructions = document.getElementById("modalInstructions");
+    const closeButton = document.querySelector(".close-button");
 
-                recipeCard.innerHTML = `
-                    <h3>${data.name}</h3>
-                    <img src="${data.images[0].path}" alt="${data.images[0].description}">
-                    <p>${data.description}</p>
-                    <button class="view-more-btn" data-recipe='${JSON.stringify(data)}'>View More</button>
-                `;
+    // Add event listener to all "View More" buttons
+    document.querySelectorAll(".view-more-btn").forEach(button => {
+        button.addEventListener("click", () => {
+            const recipeName = button.previousElementSibling.previousElementSibling.textContent.toLowerCase().replace(/ /g, "_");
+            const jsonFilePath = `json/${recipeName}.json`; // Assumes JSON files match the recipe name in lowercase and underscores
 
-                featuredRecipesContainer.appendChild(recipeCard);
-
-                const viewMoreButton = recipeCard.querySelector('.view-more-btn');
-                viewMoreButton.addEventListener('click', function() {
-                    const recipeData = JSON.parse(this.getAttribute('data-recipe'));
-                    displayRecipeModal(recipeData);
+            // Fetch the recipe JSON file
+            fetch(jsonFilePath)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Could not fetch recipe data for ${recipeName}`);
+                    }
+                    return response.json();
+                })
+                .then(recipe => {
+                    displayRecipeModal(recipe);
+                })
+                .catch(error => {
+                    console.error("Error fetching recipe data:", error);
                 });
-            })
-            .catch(error => console.error('Error loading recipe data:', error));
-    }
+        });
+    });
 
+    // Function to populate the modal with recipe details
     function displayRecipeModal(recipe) {
-        const modal = document.getElementById('recipeModal');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalImage = document.getElementById('modalImage');
-        const modalDescription = document.getElementById('modalDescription');
-        const modalIngredients = document.getElementById('modalIngredients');
-        const modalInstructions = document.getElementById('modalInstructions');
-
         modalTitle.textContent = recipe.name;
         modalImage.src = recipe.images[0].path;
         modalImage.alt = recipe.images[0].description;
         modalDescription.textContent = recipe.description;
 
-        modalIngredients.innerHTML = '';
-        modalInstructions.innerHTML = '';
-
+        // Clear and populate ingredients
+        modalIngredients.innerHTML = "";
         recipe.ingredients.forEach(ingredient => {
-            const li = document.createElement('li');
+            const li = document.createElement("li");
             li.textContent = ingredient;
             modalIngredients.appendChild(li);
         });
 
+        // Clear and populate instructions
+        modalInstructions.innerHTML = "";
         recipe.instructions.forEach(instruction => {
-            const li = document.createElement('li');
+            const li = document.createElement("li");
             li.textContent = instruction;
             modalInstructions.appendChild(li);
         });
 
-        modal.style.display = 'block';
-
-        const closeButton = document.querySelector('.close-button');
-        closeButton.addEventListener('click', function() {
-            modal.style.display = 'none';
-        });
-
-        window.addEventListener('click', function(event) {
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
+        modal.style.display = "block";
     }
 
-    displayRecipes();
+    // Close modal when "x" button is clicked
+    closeButton.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    // Close modal when clicking outside of it
+    window.addEventListener("click", event => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
 });

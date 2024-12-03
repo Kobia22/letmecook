@@ -24,10 +24,6 @@
       {
         "description": "A bowl of hearty lentil soup",
         "path": "images/lentil_soup.jpg"
-      },
-      {
-        "description": "Chopped vegetables ready for sautéing",
-        "path": "images/vegetables.jpg"
       }
     ]
   }

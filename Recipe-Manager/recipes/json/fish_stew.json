@@ -26,10 +26,6 @@
     {
       "description": "Fish stew garnished with fresh coriander",
       "path": "images/fish_stew.jpg"
-    },
-    {
-      "description": "Marinated fish in a bowl with spices",
-      "path": "images/marinated_fish.jpg"
     }
   ]
 }
