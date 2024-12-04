@@ -236,6 +236,32 @@ section {
     transform: scale(1.05);
 }
 
+.add-new-recipes-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: #FF6A00; /* White text */
+    background-color: white; /* Bright orange background */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: all 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+.add-new-recipes-btn:hover {
+    color: white;
+    background-color: #FF4500; /* Slightly darker orange on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+    transform: scale(1.05); /* Slight enlargement */
+}
+
+.add-new-recipes-btn:active {
+    background-color: #FF2400; /* Even darker orange when clicked */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduced shadow */
+    transform: scale(0.95); /* Button slightly shrinks */
+}
+
 /* Modal Background */
 .modal {
     display: none; /* Hidden by default */

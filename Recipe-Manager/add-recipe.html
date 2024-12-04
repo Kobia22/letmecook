@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Recipe</title>
+    <link rel="stylesheet" href="css/add-recipe.css">
+</head>
+<body>
+    <header>
+        <h1>Add Recipe</h1>
+    </header>
+
+    <main>
+        <form id="recipeForm">
+            <!-- Meal Name -->
+            <section>
+                <h2>Meal Details</h2>
+                <input type="text" name="mealName" placeholder="Meal Name" required>
+            </section>
+
+            <!-- Meal Category -->
+            <section>
+                <h2>Meal Category</h2>
+                <select name="mealCategory" required>
+                    <option value="" disabled selected>Select Category</option>
+                    <option value="breakfast">Breakfast</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="dinner">Dinner</option>
+                    <option value="snack">Snack</option>
+                    <option value="dessert">Dessert</option>
+                </select>
+            </section>
+
+            <!-- Photo Upload -->
+            <section>
+                <h2>Meal Photo</h2>
+                <input type="file" name="mealPhoto" accept="image/*" required>
+            </section>
+
+            <!-- Ingredients Section -->
+            <section>
+                <h2>Ingredients</h2>
+                <div id="ingredientsContainer">
+                    <div class="row">
+                        <input type="text" name="ingredientName[]" placeholder="Ingredient Name" required>
+                        <input type="text" name="ingredientQuantity[]" placeholder="Quantity (e.g., 2 cups)" required>
+                        <select name="ingredientUnit[]">
+                            <option value="">Select Unit</option>
+                            <option value="grams">Grams</option>
+                            <option value="cups">Cups</option>
+                            <option value="teaspoons">Teaspoons</option>
+                            <option value="liters">Liters</option>
+                        </select>
+                        <button type="button" class="removeIngredient">Remove</button>
+                    </div>
+                </div>
+                <button type="button" id="addIngredient">Add Ingredient</button>
+            </section>
+
+            <!-- Procedure Section -->
+            <section>
+                <h2>Preparation Steps</h2>
+                <div id="procedureContainer">
+                    <div class="row">
+                        <textarea name="procedure[]" placeholder="Step description" rows="3" required></textarea>
+                        <button type="button" class="removeStep">Remove</button>
+                    </div>
+                </div>
+                <button type="button" id="addProcedure">Add Step</button>
+            </section>
+
+            <!-- Submit -->
+            <button type="submit">Save Recipe</button>
+        </form>
+    </main>
+
+    <a href="index.html" id="back">Back to Home</a>
+
+    <script src="js/add-recipe.js"></script>
+</body>
+</html>
