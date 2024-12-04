@@ -236,6 +236,29 @@ section {
     transform: scale(1.05);
 }
 
+/* View All Recipes Button */
+.view-recipes-btn {
+    display: inline-block;
+    background-color: #FF6A00; /* Bright orange background */
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline */
+    padding: 10px 20px; /* Padding for a button-like appearance */
+    font-size: 1rem; /* Font size for readability */
+    border-radius: 25px; /* Rounded edges */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    font-weight: bold;
+    text-align: center;
+}
+
+.view-recipes-btn:hover {
+    background-color: white; /* Invert colors on hover */
+    color: #FF6A00; /* Orange text */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+    border: 2px solid #FF6A00; /* Orange border */
+}
+
+
 .add-new-recipes-btn {
     display: block;
     margin: 20px auto;

@@ -1,4 +1,4 @@
-{
+export const githeri = {
   "name": "Githeri",
   "description": "Githeri is a popular Kenyan dish made with a combination of maize (corn) and beans. It's a hearty and flavorful meal that's perfect for any time of day.",
   "ingredients": [

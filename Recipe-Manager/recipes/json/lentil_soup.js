@@ -1,5 +1,4 @@
-
-{
+export const lentilSoup = {
     "name": "Lentil Soup",
     "description": "Lentil soup is a hearty and comforting dish made with lentils as its main ingredient. It's a versatile soup that can be adapted to different tastes and dietary needs.",
     "ingredients": [

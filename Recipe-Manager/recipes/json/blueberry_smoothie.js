@@ -1,5 +1,4 @@
-
-{ 
+export const blueberrySmoothie = {
   "name": "Blueberry Smoothie",
   "description": "A blueberry smoothie is a refreshing and nutritious drink made by blending blueberries with other ingredients like yogurt, milk, or juice. It's a popular choice for a quick and healthy breakfast or snack.",
   "ingredients": [

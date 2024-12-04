@@ -1,4 +1,4 @@
-
+export const friedLiver =
 {
   "name": "Fried Liver",
   "description": "Fried liver is a dish made from liver, typically from beef, pork, or chicken, that is fried. It can be served with a variety of sides, such as mashed potatoes, vegetables, or gravy.",

@@ -1,5 +1,4 @@
-
-{
+export const fishStew ={
   "name": "Fish Stew",
   "description": "Fish stew is a hearty soup or stew that features fish as its primary ingredient. It's a popular dish worldwide, with variations based on regional cuisines.",
   "ingredients": [

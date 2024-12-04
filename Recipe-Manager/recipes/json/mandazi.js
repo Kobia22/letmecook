@@ -1,4 +1,4 @@
-
+export const mandazi =
 {
   "name": "Mandazi",
   "description": "Mandazi are delicious East African doughnuts that are perfect for breakfast or a snack.",

@@ -1,5 +1,4 @@
-
-{
+export const crunchyVegetableSalad = {
   "name": "Crunchy Vegetable Salad",
   "description": "A fresh and vibrant salad perfect for any meal. A crunchy vegetable salad is a refreshing and healthy dish that typically features a colorful mix of raw vegetables. It's a great way to incorporate more vegetables into your diet and enjoy a light, satisfying meal.",
   "ingredients": [
