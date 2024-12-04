@@ -1,17 +1,3 @@
-// Assume you have a JSON file named 'recipes.json' with the following structure:
-// [
-//   {
-//     "name": "Recipe 1",
-//     "ingredients": ["Ingredient 1", "Ingredient 2"],
-//     "instructions": ["Step 1", "Step 2"]
-//   },
-//   {
-//     "name": "Recipe 2",
-//     "ingredients": ["Ingredient 3", "Ingredient 4"],
-//     "instructions": ["Step 3", "Step 4"]
-//   }
-// ]
-
 // Load the JSON file using require
 const recipes = require('../recipes/json');
 
